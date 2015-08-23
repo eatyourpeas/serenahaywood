@@ -1,0 +1,173 @@
+<head>
+  <title>serenahaywood</title>
+  <link rel="icon" sizes="16x16 32x32" href="/img/serenahaywood.jpg">
+</head>
+
+
+
+<template name="main">
+  {{> navigation }}
+  {{> yield }}
+  {{> footer }}
+
+</template>
+
+<template name="current_work">
+  <p>Current Work</p>
+</template>
+
+<template name="writing">
+  <p>Writing</p>
+  <container>
+    <row>
+    <div class="col-md-2"></div>
+      <div class="col-md-8">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Play</th>
+        <th>Theatre</th>
+        <th>Company</th>
+        <th>Date</th>
+        <th>Reviews</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-md-2"></div>
+</row>
+</container>
+</template>
+
+<template name="producing">
+  <p>Producing</p>
+</template>
+
+<template name="theatre_companies">
+  <p>Theatre Companies</p>
+</template>
+
+<template name="future_projects">
+  <p>Future Projects</p>
+</template>
+
+<template name="about">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <img class="img-circle" src="/img/serenahaywood.jpg">
+      <h2>About Serena Haywood</h2>
+      <p>New writing for the theatre</p>
+    </div>
+  </div>
+  <row>
+    <div class="col-md-3 text-center"></div>
+    <div class="col-md-3 text-center"><p>Painful truths through comedy</p>
+    <p>Serena is a critically acclaimed playwright whose careful and wry observations place a lens over the lives and loves of ordinary people.
+    Her writing is often funny and always poignant. She always leaves her audience entertained and enriched.</p></div>
+    <div class="col-md-3 text-center"><p>read an interview with Serena Haywood <a href="http://www.femalearts.com/node/1852">here</a></p></div>
+    <div class="col-md-3 text-center"></div>
+  </row>
+</template>
+
+<template name="contact">
+  <p>Contact Serena Haywood</p>
+</template>
+
+<template name="navigation">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- add header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><strong>@</strong>Serena<strong>Haywood</strong></a>
+        </div>
+        <!-- menu items -->
+        <div class="collapse navbar-collapse" id="navbar1">
+            <ul class="nav navbar-nav">
+                <li class="{{ activeIfTemplateIs 'home' }}"><a href="{{ pathFor route='home' }}">Home<span class="sr-only">(current)</span></a></li>
+                <li class="{{ activeIfTemplateIs 'current_work' }}"><a href="{{ pathFor route='current_work' }}">Current Work</a></li>
+                <li class="{{ activeIfTemplateIs 'writing' }}"><a href="{{ pathFor route='writing' }}">Writing</a></li>
+                <li class="{{ activeIfTemplateIs 'producing' }}"><a href="{{ pathFor route='producing' }}">Producing</a></li>
+                <li class="{{ activeIfTemplateIs 'theatre_companies' }}"><a href="{{ pathFor route='theatre_companies' }}">Theatre Companies</a></li>
+                <li class="{{ activeIfTemplateIs 'future_projects' }}"><a href="{{ pathFor route='future_projects' }}">Future Projects</a></li>
+                <li class="{{ activeIfTemplateIs 'about' }}"><a href="{{ pathFor route='about' }}">About</a></li>
+                <li class="{{ activeIfTemplateIs 'contact' }}"><a href="{{ pathFor route='contact' }}">Contact</a></li>
+            </ul>
+            <!-- social media icons -->
+            <ul class="nav navbar-nav navbar-left social">
+                <li><a href="https://twitter.com/SerenaHaywood"><i class="fa fa-lg fa-twitter"></i></a></li>
+                <li><a href="mailto:serena.haywood@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+</template>
+
+<template name="home">
+    <div class="wide"></div>
+    <row class="col-md-12 text-center">
+      <div class="col-md-4 text-center">
+        <blockquote>
+          <p>"Very powerful and poignant dialogue"</p>
+          <footer>everything theatre <cite title="everything theatre">Rewritten; Camden Fringe 2015</cite></footer>
+        </blockquote>
+      </div>
+      <div class="col-md-4 text-center">
+        <blockquote>
+          <p>"Acclaimed writer Serena Haywood ....You don’t get more excellent character writing than this"</p>
+          <footer>Grumpy Gay Critic<cite title='Pause'> Goddess, Camden Fringe 2015</cite></footer>
+        </blockquote>
+      </div>
+      <div class="col-md-4 text-center">
+        <blockquote>
+          <p>"…the sort of lines that make you want to go for dinner with the playwright"</p><footer>Female Arts<cite title="Ladylogue"> Ladylogue; Camden Fringe 2014</cite></footer>
+        </blockquote>
+      </div>
+    </row>
+
+    <!-- Three columns of text below the carousel -->
+     <div class="row">
+       <div class="col-md-4 text-center">
+         <img class="img-circle" src="/img/serenahaywood.jpg">
+         <h2>Writing</h2>
+         <p>New writing for the fringe</p>
+         <p><a class="btn btn-default" href="{{ pathFor route='writing' }}">View details »</a></p>
+       </div>
+       <div class="col-md-4 text-center">
+         <img class="img-circle" src="/img/collective_postcard_front.jpg" width="237px" height="237px">
+         <h2>Producing</h2>
+         <p>Artistic Director of The Pensive Federation</p>
+         <p><a class="btn btn-default" href="{{ pathFor route='producing' }}">View details »</a></p>
+       </div>
+       <div class="col-md-4 text-center">
+         <img class="img-circle" src="/img/tangerine.png" width="237px" height="237px">
+         <h2>Theatre Companies</h2>
+         <p>Co-artistic director of Tangerine Theatre Company</p>
+         <p><a class="btn btn-default" href="{{ pathFor route='theatre_companies' }}">View details »</a></p>
+       </div>
+     </div><!-- /.row -->
+</template>
+
+<template name = "footer">
+  <div class="jumbotron ">
+    <div class="col-md-4 text-center"><a href="https://twitter.com/SerenaHaywood"><i class="fa fa-lg fa-twitter fa-5x"></i></a></div>
+    <div class="col-md-4 text-center"></div>
+    <div class="col-md-4 text-center"><a href="mailto:serena.haywood@gmail.com"><i class="fa fa-lg fa-envelope fa-5x"></i></a></div>
+  </div>
+</template>

@@ -1,0 +1,70 @@
+/* CSS declarations go here */
+
+.navbar {
+  background-color: #43b3ae;
+  font-family: monospace;
+}
+
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+.navbar .nav > li > a {
+
+    color:  #ddd;
+}
+
+.wide {
+  width:100%;
+  height:800px;
+  background-image: url('/img/murmuration.jpg');
+  background-size:cover;
+  color: #ffffff;
+  font-family: monospace;
+}
+
+.wide img {
+  width:100%;
+  height: 100%;
+}
+
+.row {
+  padding-top: 20px;
+  color: #43b3ae;
+  font-family: monospace;
+  padding-bottom: 20px;
+}
+
+.jumbotron {
+  background-color: #43b3ae;
+  color: #ffffff;
+  padding-bottom: 100px;
+}
+
+.p {
+  font-family: monospace;
+}
+
+blockquote {
+  font-family: monospace;
+}
+
+row {
+  padding-top: 20px;
+}
+
+html, body {
+	height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.footer, .page-wrap:after {
+  height: 142px;
+}
