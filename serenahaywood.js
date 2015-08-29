@@ -1,5 +1,29 @@
+PlayList = new Meteor.Collection('plays');
+/*
+PlayList.insert({
+  date: 'August 2015',
+  festival_name: 'Camden Fringe',
+  title: 'Goddess',
+  theatre_company: 'Tangerine Theatre Company',
+  web_link: 'http://tangerinetheatre.moonfruit.com/',
+  facebook_page: 'https://www.facebook.com/pages/Tangerine-Theatre-Company/355673674622043?ref=bookmarks',
+  venue: 'Tristan Bates Theatre',
+  venue_web_link: 'http://tristanbatestheatre.co.uk/'
+},
+{
+  date: 'August 2015',
+  festival_name: 'Camden Fringe',
+  title: 'Zero in Ladylogue',
+  theatre_company: 'The Thelmas',
+  web_link: 'http://www.thethelmas.co.uk/',
+  facebook_page: '',
+  venue: 'Tristan Bates Theatre',
+  venue_web_link: 'http://tristanbatestheatre.co.uk/'
+});
+*/
+
 if (Meteor.isClient) {
-  
+
   Router.configure({
     layoutTemplate : 'main'
   });
