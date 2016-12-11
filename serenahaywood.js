@@ -1,6 +1,6 @@
 PlayList = new Meteor.Collection('plays');
 ReviewList = new Meteor.Collection('reviews');
-/*
+
 PlayList.insert({
   play_image: '/img/goddess.jpg',
   date: 'August 2015',
@@ -87,7 +87,7 @@ review_link: 'http://www.viewsfromthegods.co.uk/plays.shtml'
   reviewer : 'There Ought To Be Clowns',
   review_link : 'http://oughttobeclowns.blogspot.co.uk/2015/08/review-ladylogue-tristan-bates.html?m=0'
 });
-*/
+
 
 if (Meteor.isServer) {
   Meteor.publish("userData", function () {
