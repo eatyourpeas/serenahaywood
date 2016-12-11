@@ -35,7 +35,7 @@
 
   // Configure environment
   "env": {
-    "ROOT_URL": "http://www.serenahaywood.com",
+    "ROOT_URL": "http://serenahaywood.eatyoupeas.co.uk",
     "PORT": 4000
   },
 
