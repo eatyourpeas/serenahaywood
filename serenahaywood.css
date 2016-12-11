@@ -30,18 +30,15 @@
 
 .row {
   padding-top: 20px;
-  color: #43b3ae;
+  color: #dcf2f1;
   font-family: monospace;
   padding-bottom: 20px;
 }
 
 
-.p {
+p {
   font-family: monospace;
-}
-
-blockquote {
-  font-family: monospace;
+  color: #666666;
 }
 
 row {
@@ -49,23 +46,120 @@ row {
 }
 
 * {
-margin: 0;
+    margin: 0;
 }
 html, body {
-height: 100%;
+    height: 100%;
 }
 .wrapper {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -155px;
+
+    min-height: 100%;
+    height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.push {
+    height: 155px; /* .push must be the same height as .footer */
 }
 .footer {
-  padding-top: 50px;
   background-color: #43b3ae;
-  height: 155px;
+  height: 155px; /* .push must be the same height as .footer */
+  padding: 50px;
+  color: #666666;
 }
 
-.push {
-  height: 155px;
+.productioncredits {
+  font-family: monospace;
+  padding: 20px;
+  font-size: 16pt;
+  color: #666666;
+}
+
+h1 {
+  font-family: monospace;
+  padding: 24px;
+  font-size: 16pt;
+  color: #666666;
+}
+
+.introductiontext {
+  font-family: monospace;
+  padding: 50px;
+  font-size: 14pt;
+  color: #666666;
+  background-color: #dcf2f1;
+}
+
+.row-even {
+  font-family: monospace;
+  background-color: #dcf2f1;
+  color: #666666;
+  padding: 50px;
+}
+
+.row-odd {
+  font-family: monospace;
+  background-color: white;
+  color: #666666;
+  padding: 50px;
+}
+.copyright {
+  color: black;
+}
+
+.filler {
+  color: white;
+}
+
+.play-row-coloured {
+  background-color: #dcf2f1;
+  color: #666666;
+}
+
+.play-row-white {
+  background-color: white;
+  color: #666666;
+}
+
+.imagewidth {
+  width: 100%;
+}
+
+.imageheightwrapper {
+  height: 100%;
+  vertical-align: middle;
+   text-align: center;
+}
+
+a {
+  color: black;
+  font-family: monospace;
+}
+a:hover{
+  color:  #666666;
+  text-decoration:none;
+}
+
+blockquote {
+  font-family: monospace;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+h2 {
+  color: #666666;
 }

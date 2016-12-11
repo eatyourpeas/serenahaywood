@@ -3,8 +3,6 @@
   <link rel="icon" sizes="16x16 32x32" href="/img/serenahaywood.jpg">
 </head>
 
-
-
 <template name="main">
   {{> navigation }}
   <div class="wrapper">
@@ -12,79 +10,442 @@
   <div class = "push"></div>
   </div>
   {{> footer }}
-
 </template>
 
 <template name="current_work">
-  <p>Current Work</p>
+  <container-fluid>
+    <row class='row-odd col-md-12'>
+      <div class='col-md-5'>
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h1><a href='http://pensivefederation.com/'><img class='img-responsive' src='/img/the_pensive_federation_cup.png' alt='PensiveFederation' width='100px'></a>The Pensive Federation</h1>
+            <h2>The Collective Project with The Pensive Federation.</h2>
+          </div>
+          <div class='panel-body'>
+            <div class='introductiontext'>Watch this space for news about our next production in November 2015. It’s the fifth anniversary of our theatre company and we are celebrating in style!
+            The Collective Project is our annual autumn production. We examine group dynamics and team hierarchies, the role of the individual and what it’s like to be in a collective. 
+            8 new 12 minute plays in 12 days. 12 actors, 8 directors and 8 writers.</div>
+          </div>
+        </div>
+      </div>
+        <div class='col-md-7' align='center'><div > <img class='image-responsive' width='100%' src='http://res.cloudinary.com/eatyourpeas/image/upload/v1441449454/serenahaywood/collective2015.jpg'></div></div>
+    </row>
+    <div class='filler'>hi</div>
+  </container-fluid>
+</template>
+
+<template name='addPlayModal'>
+  <div id="AddPlayModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+        <form class='addPlay'>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+          <h4 class="modal-title" id="addPlay"> Add a new play </h4>
+        </div>
+        <div class="modal-body">
+              <div class='form-group'>
+                <label for='play_image_file'>Play Image</label>
+                <input type='file' id='play_image_file' name='play_image_file'>
+                <p><img src={{ c.url play_image }} width = '150px' class="img-fileUpload-thumbnail img-thumbnail img-rounded"></p>
+              <!--  <div class = 'centre' align='center'><img src = {{ c.url play_image }} class="img-fileUpload-thumbnail img-thumbnail img-rounded"></div> -->
+              </div>
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Macbeth" required="true">
+              </div>
+              <div class="form-group">
+                <label for="theatre_company">Theatre Company</label>
+                <input type="text" class="form-control" id="theatre_company" placeholder="the Royal Shakespeare Company">
+              </div>
+              <div class="form-group">
+                <label for="web_link">Web Page</label>
+                <input type="text" class="form-control" id="web_link" placeholder="www.theatrecompany.com">
+              </div>
+              <div class="form-group">
+                <label for = 'date'>Date</label>
+                <input type = 'date' class='form-control' id = 'date'>
+              </div>
+              <div class="form-group">
+                <label for = 'venue'>Venue</label>
+                <input type = 'text' class='form-control' id = 'venue' placeholder="the Royal Court">
+              </div>
+              <div class="form-group">
+                <label for = 'venue_web_link'>Venue Web Page</label>
+                <input type = 'text' class='form-control' id = 'venue_web_link' placeholder="www.theroyacourt.com">
+              </div>
+              <div class="form-group">
+                <label for="festival_name">Festival</label>
+                <input type="text" class="form-control" id="festival_name" placeholder="Edinburgh Fringe">
+              </div>
+              <div class="form-group">
+                <label for="facebook_page">Festival Web Page</label>
+                <input type="text" class="form-control" id="facebook_page" placeholder="wwww.edinburghfringe.com">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value='Save changes' id='save'>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name='editPlayModal'>
+  <div id="EditPlaysModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+        <form class='updatePlay'>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h4 class="modal-title" id="addPlay">{{ title }} </h4>
+        </div>
+        <div class="modal-body">
+          <div class='form-group'>
+            <label for='play_image_file'>Play Image</label>
+            <input type='file' id='play_image_file' name='play_image_file'>
+            <p><img src={{ c.url play_image }} width = '150px' class="img-fileUpload-thumbnail img-thumbnail img-rounded"></p>
+          </div>
+              <div class="form-group">
+                <label for="theatre_company">Theatre Company</label>
+                <input type="text" class="form-control" id="theatre_company" value = {{theatre_company}}>
+              </div>
+              <div class="form-group">
+                <label for="web_link">Web Page</label>
+                <input type="text" class="form-control" id="web_link" value = {{web_link}}>
+              </div>
+              <div class="form-group">
+                <label for = 'date'>Date</label>
+                <input type = 'date' class='form-control' id = 'date' value = {{date}}>
+              </div>
+              <div class="form-group">
+                <label for = 'venue'>Venue</label>
+                <input type = 'text' class='form-control' id = 'venue' value = {{venue}}>
+              </div>
+              <div class="form-group">
+                <label for = 'venue_web_link'>Venue Web Page</label>
+                <input type = 'text' class='form-control' id = 'venue_web_link' value = {{venue_web_link}}>
+              </div>
+              <div class="form-group">
+                <label for="festival_name">Festival</label>
+                <input type="text" class="form-control" id="festival_name" value = {{festival_name}}>
+              </div>
+              <div class="form-group">
+                <label for="facebook_page">Web Page</label>
+                <input type="text" class="form-control" id="facebook_page" value = {{facebook_page}}>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value='Save changes' id='save'>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name='deletePlayModal'>
+  <div id="DeletePlayModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+          <h4 class="modal-title" id="deletePlay">{{ title }} </h4>
+        </div>
+        <div class="modal-body">
+          <H4>Are you sure you want to delete {{ title }}?</H4>
+          <H5>This will delete the play and all its reviews. This cannot be undone.</H5>
+        </div>
+        <div class="modal-footer">
+          <div class="modalbuttons">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" name='confirmdeleteplay'>Delete Play</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name='ReviewsModal'>
+  <div id="ReviewsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+          <h4 class="modal-title" id="addReview"> {{ title }} </h4>
+        </div>
+        <form class='addReview'>
+        <div class="modal-body">
+              <div class="form-group">
+                <label for="stars">Stars</label>
+                <input type="text" class="form-control" id="stars" >
+              </div>
+              <div class="form-group">
+                <label for="reviewer">Reviewer</label>
+                <input type="text" class="form-control" id="reviewer" >
+              </div>
+              <div class="form-group">
+                <label for = 'review'>Review</label>
+                <input type = 'text' class='form-control' id = 'review' >
+              </div>
+              <div class="form-group">
+                <label for = 'review_link'>Review Web Page</label>
+                <input type = 'text' class='form-control' id = 'review_link' >
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value='Save changes'>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name='editReviewsModal'>
+  <div id="EditReviewsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+          <h4 class="modal-title" id="editReview">Edit Review</h4>
+        </div>
+        <form class='editReview'>
+        <div class="modal-body">
+              <div class="form-group">
+                <label for="stars">Stars</label>
+                <input type="text" class="form-control" id='stars' value = {{ stars }} >
+              </div>
+              <div class="form-group">
+                <label for="reviewer">Reviewer</label>
+                <input type="text" class="form-control" id='reviewer' value = {{ reviewer }} >
+              </div>
+              <div class="form-group">
+                <label for = 'review'>Review</label>
+                <input type = 'text' class='form-control' id='review' value = {{ review }} >
+              </div>
+              <div class="form-group">
+                <label for = 'review_link'>Review Web Page</label>
+                <input type = 'text' class='form-control' id='review_link' value = {{ review_link }} >
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value='Save changes' name='save'>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name='deleteReviewModal'>
+  <div id="DeleteReviewModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+          <h4 class="modal-title" id="deletePlay">Remove Review </h4>
+        </div>
+        <div class="modal-body">
+          <H4>Are you sure you want to delete the review by {{ reviewer }}?</H4>
+          <H5>This cannot be undone.</H5>
+        </div>
+        <div class="modal-footer">
+          <div class="modalbuttons">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="button" class="btn btn-danger" name = 'confirmdeletereview' value='Delete Review'>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name='paneldata'>
+  <!--<div class="panel-body text-center"> -->
+    <h1>{{ title }}</h1>
+    <h4><a href= {{ web_link }}>{{ theatre_company}}</a></h4>
+    <h5>{{ festival_name}} <i>{{ date }}</i></h5>
+    <h6><a href= {{ venue_web_link }}>{{ venue }}</a></h6>
+    {{ #if checkIfAdmin }}
+      <a href="#EditPlaysModal" role="button" class="btn" data-toggle="modal"><div class = 'details'><button class="btn btn-primary" id={{_id}} name = 'details'>Edit Details</button></div></a>
+      <a href="#DeletePlayModal" role="button" class="btn" data-toggle="modal"><div class = 'details'><button class="btn btn-danger" id={{_id}} name = 'details'>Delete</button></div></a>
+      <a href="#ReviewsModal" role="button" class="btn" data-toggle="modal"><div class = 'reviews'><button class="btn btn-info" id={{_id}} name = 'reviews'>Add A Review</button></div></a>
+    {{ /if }}
+  <!-- </div> -->
+</template>
+
+<template name='reviewpaneldata'>
+  {{{starNumber }}}
+  {{ #if checkIfAdmin }}
+    <a href="#EditReviewsModal" role="button" class="btn" data-toggle="modal"><div class = 'review'><button class="btn btn-default" id={{_id}} name = 'review'>Edit</button></div></a>
+    <a href="#DeleteReviewModal" role="button" class="btn" data-toggle="modal"><div class = 'review'><button class="btn btn-danger" id={{_id}} name = 'review'>Delete</button></div></a>
+  {{ /if }}
+  <blockquote>'... {{ review }} ...'<footer> <a href={{ review_link }}>{{ reviewer }}</a></footer></blockquote>
 </template>
 
 <template name="writing">
-  <p>Writing</p>
-  <container>
-    <row>
-    <div class="col-md-2"></div>
-      <div class="col-md-8">
-  <table class="table table-condensed">
-    <thead>
-      <tr>
-        <th>Play</th>
-        <th>Theatre</th>
-        <th>Company</th>
-        <th>Date</th>
-        <th>Reviews</th>
-        <th>Link</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="col-md-2"></div>
-</row>
-</container>
+
+  <container-fluid>
+
+      {{#each Plays}}
+      <div class='row {{ play_row }}'>
+        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+            <div class="col-md-6">
+              {{> paneldata }}
+              <div class='centerimage' align='center' vertical-align='middle'><img src='{{ c.url play_image format=format }}' width="400px" vertical-align='middle'></div>
+            </div>
+            <div class="col-md-6">
+              {{ #each Reviews }}
+                {{> reviewpaneldata }}
+              {{ /each }}
+            </div>
+        </div>
+      </div>
+
+      {{/each}}
+
+    </container-fluid>
+
+      {{ #if checkIfAdmin }}
+        <a href="#AddPlayModal" role="button" class="btn" data-toggle="modal"><div class = 'details'><button class="btn btn-primary" id={{_id}} name = 'details'>Add Play</button></div></a>
+      {{ /if }}
+
+      {{>addPlayModal}}
+
+     {{ #with selected_play }}
+        {{> deletePlayModal}}
+     {{ /with}}
+
+     {{#with selected_play }}
+       {{> editPlayModal }}
+     {{/with}}
+
+     {{#with selected_play }}
+        {{> ReviewsModal}}
+     {{/with}}
+
+     {{#with selected_review }}
+        {{> editReviewsModal}}
+     {{/with}}
+
+     {{ #with selected_review }}
+        {{> deleteReviewModal}}
+     {{ /with}}
+   <div class='filler'>filler</div>
 </template>
 
 <template name="producing">
-  <p>Producing</p>
+  <container>
+    <div class='productioncredits'>
+      <p>★★★★  Grumpy Gay Critic – “An intriguing evening of intelligence and ingenuity…”</p>
+      <p> ★★★★ View from the Gods “…there’s just too much talent, no weak links…one of the most successful new writing nights I’ve seen this year.”</p>
+      <p>★★★★ Female Arts “The Pensive Federation is a company that is swiftly cementing a reputation for staging quality new writing, developed through innovative experiments in collaborative practice specifically devised to champion emerging writers.”</p>
+      <p> ★★★★ View from the Gods “The Pensive Federation thrive on challenge, never content to do things the easy way and reinvigorating the fringe circuit with plenty of new ideas. If that’s not enough to make them the object of your affection, I don’t know what is.” </p>
+    </div>
+    <div class='introductiontext'>
+      <p>Serena is one third of <a href='http://pensivefederation.com/'>The Pensive Federation</a> and one of the two artistic directors.</p>
+      <p>The Pensive Federation is now an established feature of the London fringe with the ability to select exceptional artists, bring the teams together quickly creating pieces of work that are rightly seen as of a very high standard. We are involved in every step of the way from interviewing writers and directors, dramaturgy of the pieces, contributing in the rehearsal rooms and making sure our artists are fed! We chose short production times and flexible rehearsals to allow people to have their normal working lives. Firm friendships have been formed. The shared aspiration in the theatre we produce reflects the magic in the mundane, the extraordinary in the everyday. We strive to create accessible work that examines the hopes, fears and dreams that live in all of us; the need for a connection with those around us, the instinct to love and the desire to be loved, to be seen in the world and acknowledged for the person you are and not the labels you wear.</p>
+      <p><b>We have three main events a year:</b></p>
+    </div>
+
+      <row class='row-odd col-md-12'>
+        <div class='col-md-4'>
+          <h4><b>Significant Other</b> where ten new plays are put together in ten days using an entirely new company with a different theme every year.</h4>
+        </div>
+        <div class='col-md-8'>
+          <div class='centerimage' align='center'><img src='http://res.cloudinary.com/eatyourpeas/image/upload/v1441494692/serenahaywood/significantother.jpg' alt='Significant Other'></div>
+        </div>
+      </row>
+
+      <row class='row-even col-md-12'>
+        <div class='col-md-8'>
+          <div class='centerimage' align='center'><img src='http://res.cloudinary.com/eatyourpeas/image/upload/v1441494692/serenahaywood/collective.jpg' alt='The Collective Projects'></div>
+        </div>
+        <div class='col-md-4'>
+          <h4><b>The Collective Project</b> is an invitation only project where 8 new plays are created in 12 days with 12 actors, 8 writers and 8 directors. The inspiration is collective nouns.</h4>
+        </div>
+      </row>
+
+      <row class='row-odd col-md-12'>
+        <div class='col-md-4'>
+          <h4><b>Rewritten</b> where a full length piece is composed from writers acting independently using one source text to produce one whole play.</h4>
+        </div>
+        <div class='col-md-8'>
+          <div class='centerimage' align='center'><img src='http://res.cloudinary.com/eatyourpeas/image/upload/v1441494692/serenahaywood/rewritten.jpg' alt='Rewritten'></div>
+        </div>
+      </row>
+      <div class=filler>hello</div>
+  </container>
 </template>
 
 <template name="theatre_companies">
-  <p>Theatre Companies</p>
+  <row class='row-odd col-md-12'>
+    <div class='col-md-4'>
+      <h1>The Thelmas</h1>
+      <h2>Great stories, told by great women...</h2>
+      <p>The Thelmas formed in response to a growing need for the support and development of new female writers. The gender imbalance in British theatre has never seemed more incongruous and so, much like the characters they help develop, The Thelmas are taking matters into their own hands.  They are passionate about seeing more work commissioned which is written by women, for women and their work reflects this. Founded by director, Madelaine Moore, whose recent work has been seen at the Arcola Theatre, the Playhouse Theatre, RichMix London, Tristan Bates Theatre, and Camden People’s Theatre.</p>
+    </div>
+    <div class='col-md-8'>
+      <div class='centeredimage' align='center'><img class='img-center' width='100%' src="http://res.cloudinary.com/eatyourpeas/image/upload/v1441491951/serenahaywood/thelmas.jpg" alt='the Thelmas'></div>
+    </div>
+  </row>
+  <row class='row-even col-md-12'>
+    <div class='col-md-8'>
+      <div class='imagewidth' align='center'><img width='100%' src='http://res.cloudinary.com/eatyourpeas/image/upload/v1441491954/serenahaywood/lostsoles.jpg' alt='RiffRaff Productions'></div>
+    </div>
+    <div class='col-md-4'>
+      <div class='centeredimage' align='center'><h1><a href='http://www.riffraffproductions.co.uk/portfolio/lost-soles/'>RiffRaff Productions</a></h1></div>
+      <h3>A pop-up gallery and theatre, part of the London Design Festival</h3>
+      <h4>14 – 22 September 2014</h4>
+      <p>Ever walked along a forest path and seen a pink stiletto in a tree? Or a ballet shoe discarded in a lay-by? Ever wondered how they got there or what happened to those that wore them?
+      Which lost souls do these lost soles belong to?
+      The Lost Soles pop-up gallery and theatre is inspired by the twitter feed <a href='https://twitter.com/Abandoned_Shoes'>@abandonedshoes</a>, where people from all over the world post photos of lost shoes that they find in unusual places.
+      Part of the London Design Festival, the Lost Soles gallery showcases artwork created using shoes from established and emerging artists from visual, graphic, illustration, textile and digital disciplines.
+      The Lost Soles theatre presents ten short plays inspired by a photo from the <a href='https://twitter.com/Abandoned_Shoes'>@abandonedshoes</a> twitter feed, imagining who their wearers were and how they came to lose their soles.</p>
+
+    </div>
+  </row>
+<div class='filler'>hello</div>
 </template>
 
-<template name="future_projects">
-  <p>Future Projects</p>
+<template name='writers_groups'>
+  <div class="col-md-6">
+  <h1>The South London Womens (BAME) Writers' Group</h1>
+  <p>The South London Womens (BAME) Writers' Group is a free, supportive network of creatives including but not limited to writers, directors, producers, actors and artistic directors. We meet monthly on every second Wednesday 7pm at <a href='http://www.thehonoroak.co.uk/'>the Honor Oak</a> (1 St German Road, Forest Hill, SE23 1RH  ) to share new writing and give positive and constructive feedback. We particularly aim to support those writers and actors who identify as BAME but are open to all. Men are also welcome. However the emphasis is on supporting the voice of all women, reflect the diversity of London and help women's stories to be heard. Our experience is for words for the stage but we'd love to hear everything from first novel ideas to musicals! Please bring no more than 10 minutes for each piece and we will share as many as we can time allowing. We particularly would like to hear from women BAME actors for unrehearsed readings on the night and to share feedback with all.</p>
+  <small><strong>Co-Founders and conveners</strong><br>
+Serena Haywood - writer and co-artistic director The Pensive Federation<br>
+Guleraana Mir - writer, co-founder The London Playwriting Lab</small>
+<a href="https://twitter.com/SLWWBAMEG"><i class="fa fa-lg fa-twitter"></i></a>
+  <a href="https://www.facebook.com/groups/286291038228575/"><i class="fa fa-lg fa-facebook"></i></a>
+</div>
+<div class="col-md-6">
+  <div class='centeredimage' align='center'><img class='img-center' width='100%' src="http://res.cloudinary.com/eatyourpeas/image/upload/v1441491951/serenahaywood/writersclub.png" alt='Writers Club'></div>
+</div>
+
+
 </template>
 
 <template name="about">
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-md-6 text-center">
       <img class="img-circle" src="/img/serenahaywood.jpg">
       <h2>About Serena Haywood</h2>
       <p>New writing for the theatre</p>
     </div>
+    <div class="col-md-6 "><div class="lead row-odd" >Painful truths through comedy</div>
+      <div class="row-odd">Serena is a critically acclaimed playwright whose careful and wry observations place a lens over the lives and loves of ordinary people.
+      Her writing is often funny and always poignant. She always leaves her audience entertained and enriched.</div>
+      <p class='row-odd'>read an interview with Serena Haywood <a href="http://www.femalearts.com/node/1852">here</a></p>
+    </div>
   </div>
-  <row>
-    <div class="col-md-3 text-center"></div>
-    <div class="col-md-6 "><div class="lead">Painful truths through comedy</div>
-    <p>Serena is a critically acclaimed playwright whose careful and wry observations place a lens over the lives and loves of ordinary people.
-    Her writing is often funny and always poignant. She always leaves her audience entertained and enriched.</p>
-    <p>read an interview with Serena Haywood <a href="http://www.femalearts.com/node/1852">here</a></p></div>
-    <div class="col-md-3 text-center"></div>
-  </row>
-</template>
-
-<template name="contact">
-  <p>Contact Serena Haywood</p>
 </template>
 
 <template name="navigation">
@@ -108,14 +469,14 @@
                 <li class="{{ activeIfTemplateIs 'writing' }}"><a href="{{ pathFor route='writing' }}">Writing</a></li>
                 <li class="{{ activeIfTemplateIs 'producing' }}"><a href="{{ pathFor route='producing' }}">Producing</a></li>
                 <li class="{{ activeIfTemplateIs 'theatre_companies' }}"><a href="{{ pathFor route='theatre_companies' }}">Theatre Companies</a></li>
-                <li class="{{ activeIfTemplateIs 'future_projects' }}"><a href="{{ pathFor route='future_projects' }}">Future Projects</a></li>
+                <li class="{{ activeIfTemplateIs 'writers_groups' }}"><a href="{{ pathFor route='writers_groups' }}">Writers' Groups</a></li>
                 <li class="{{ activeIfTemplateIs 'about' }}"><a href="{{ pathFor route='about' }}">About</a></li>
-                <li class="{{ activeIfTemplateIs 'contact' }}"><a href="{{ pathFor route='contact' }}">Contact</a></li>
             </ul>
             <!-- social media icons -->
             <ul class="nav navbar-nav navbar-left social">
                 <li><a href="https://twitter.com/SerenaHaywood"><i class="fa fa-lg fa-twitter"></i></a></li>
                 <li><a href="mailto:serena.haywood@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
+                <li><a href = "">{{> loginButtons}}</a></li>
             </ul>
         </div>
     </div>
@@ -168,9 +529,12 @@
 </template>
 
 <template name = "footer">
-  <div class="footer ">
-    <div class="col-md-4 text-center"><a href="https://twitter.com/SerenaHaywood"><i class="fa fa-lg fa-twitter fa-5x"></i></a></div>
-    <div class="col-md-4 text-center"></div>
-    <div class="col-md-4 text-center"><a href="mailto:serena.haywood@gmail.com"><i class="fa fa-lg fa-envelope fa-5x"></i></a></div>
+  <div class="footer">
+    <div class='container text-center'>
+      <div class="col-md-4 col-xs-6 text-center"><a href="https://twitter.com/SerenaHaywood"><i class="fa fa-lg fa-twitter fa-5x"></i></a></div>
+      <div class="col-md-4 text-center"></div>
+      <div class="col-md-4 col-xs-6 text-center"><a href="mailto:serena.haywood@gmail.com"><i class="fa fa-lg fa-envelope fa-5x"></i></a></div>
+      <div class='copyright' align='center'><p><small>© Copyright 2015, <a href='www.eatyourpeas.co.uk'><img src='/img/favicon.ico'> eatyourpeas </a><i>{ ... clinical coding ...}</i></small></p></div>
+    </div>
   </div>
 </template>
