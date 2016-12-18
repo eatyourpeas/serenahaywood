@@ -26,14 +26,13 @@ PlayList.insert({
 
 ReviewList.insert({
   stars: 4,
-  review: “richly-written…Serena Haywood once again proving she is the master of believable and intriguing characters.
-laugh-out-loud funny….Haywood’s writing staggers from almost dystopian, poetic descriptions of grey, crumbling Rhyl, to genuinely laugh your socks off, swearing like a sailor genius”,
+  review: "richly-written…Serena Haywood once again proving she is the master of believable and intriguing characters.... laugh-out-loud funny….Haywood’s writing staggers from almost dystopian, poetic descriptions of grey, crumbling Rhyl, to genuinely laugh your socks off, swearing like a sailor genius",
   reviewer: "Female Arts",
   review_link: 'http://femalearts.com/node/1972'
 },
 {
 stars: 3,
-review: “infectiously likeable…you definitely won't regret spending time with Holiday”,
+review: "infectiously likeable…you definitely won't regret spending time with Holiday",
 reviewer: "View From The Gods",
 review_link: 'http://www.viewsfromthegods.co.uk/plays.shtml'
 },{
