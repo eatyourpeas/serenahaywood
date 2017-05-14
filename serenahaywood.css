@@ -132,10 +132,20 @@ h1 {
 }
 
 a {
-  color: black;
+  color: #C76B6D;
   font-family: monospace;
 }
 a:hover{
+  color:  #666666;
+  text-decoration:none;
+}
+
+#about-link {
+  color: blue;
+  font-family: monospace;
+}
+
+#about-link:hover{
   color:  #666666;
   text-decoration:none;
 }

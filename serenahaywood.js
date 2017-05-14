@@ -1,8 +1,9 @@
 PlayList = new Meteor.Collection('plays');
 ReviewList = new Meteor.Collection('reviews');
 
+/*
 PlayList.insert({
-  play_image: '/img/goddess.jpg',
+  play_image: 'serenahaywood/qkzdciqtafwfoxr3poeo.jpg',
   date: 'August 2015',
   festival_name: 'Camden Fringe',
   title: 'Goddess',
@@ -13,7 +14,7 @@ PlayList.insert({
   venue_web_link: 'http://tristanbatestheatre.co.uk/'
 },
 {
-  play_image : '/img/sarah_cowen_ladylogue.png',
+  play_image : 'serenahaywood/hvmcwh3atrkjotlrlxrs.png',
   date: 'August 2015',
   festival_name: 'Camden Fringe',
   title: 'Zero in Ladylogue',
@@ -86,6 +87,7 @@ review_link: 'http://www.viewsfromthegods.co.uk/plays.shtml'
   reviewer : 'There Ought To Be Clowns',
   review_link : 'http://oughttobeclowns.blogspot.co.uk/2015/08/review-ladylogue-tristan-bates.html?m=0'
 });
+*/
 
 
 if (Meteor.isServer) {
@@ -209,8 +211,11 @@ if (Meteor.isClient) {
   Template.reviewpaneldata.helpers({
     checkIfAdmin: function(){
       if (Meteor.user()) {
-        if (Meteor.user().services.facebook.id === '893362070752768' || Meteor.user().services.facebook.id === '100001350527379') {
+        if (Meteor.user().services.facebook.id === '912716848783324' || Meteor.user().services.facebook.id === '893362070752768') {
           return true;
+        }
+        else {
+          return false;
         }
       } else {
        return false;
@@ -229,8 +234,11 @@ if (Meteor.isClient) {
   Template.paneldata.helpers({
     checkIfAdmin: function(){
       if (Meteor.user()) {
-        if (Meteor.user().services.facebook.id === '893362070752768' || Meteor.user().services.facebook.id === '100001350527379') {
+        if (Meteor.user().services.facebook.id === '912716848783324' || Meteor.user().services.facebook.id === '893362070752768') {
           return true;
+        }
+        else {
+          return false;
         }
       } else {
        return false;
@@ -248,8 +256,11 @@ if (Meteor.isClient) {
       },
       checkIfAdmin: function(){
         if (Meteor.user()) {
-          if (Meteor.user().services.facebook.id === '893362070752768' || Meteor.user().services.facebook.id === '100001350527379') {
+          if (Meteor.user().services.facebook.id === '912716848783324' || Meteor.user().services.facebook.id === '893362070752768') { //100001350527379
             return true;
+          }
+          else {
+            return false;
           }
         } else {
          return false;
@@ -437,6 +448,7 @@ if (Meteor.isClient) {
       var newPlay = {
         title: event.target.title.value,
         play_image: play_image_file_public_id,
+        play_blurb: event.target.play_blurb.value,
         date: event.target.date.value,
         festival_name: event.target.festival_name.value,
         theatre_company: event.target.theatre_company.value,
@@ -482,6 +494,7 @@ if (Meteor.isClient) {
       var updatedPlay = {
         title: play.title,
         play_image: play_image_file_public_id,
+        play_blurb: event.target.play_blurb.value,
         date: event.target.date.value,
         festival_name: event.target.festival_name.value,
         theatre_company: event.target.theatre_company.value,

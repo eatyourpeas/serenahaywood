@@ -14,21 +14,57 @@
 
 <template name="current_work">
   <container-fluid>
-    <row class='row-odd col-md-12'>
-      <div class='col-md-5'>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
-            <h1><a href='http://pensivefederation.com/'><img class='img-responsive' src='/img/the_pensive_federation_cup.png' alt='PensiveFederation' width='100px'></a>The Pensive Federation</h1>
-            <h2>The Collective Project with The Pensive Federation.</h2>
-          </div>
-          <div class='panel-body'>
-            <div class='introductiontext'>Watch this space for news about our next production in November 2015. It’s the fifth anniversary of our theatre company and we are celebrating in style!
-            The Collective Project is our annual autumn production. We examine group dynamics and team hierarchies, the role of the individual and what it’s like to be in a collective. 
-            8 new 12 minute plays in 12 days. 12 actors, 8 directors and 8 writers.</div>
+    <row class="row-even col-md-12">
+      <row>
+        <div class='col-md-3'></div>
+        <div class='col-md-6' align='center'><div > <img class='image-responsive' width='100%' src='/img/tangerine_wens.jpg'></div></div>
+        <div class='col-md-3'></div>
+      </row>
+      <div class='row col-md-12'>
+        <div class='col-md-3'></div>
+        <div class='col-md-6' align='center'>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h1><a href='http://tangerinetheatre.moonfruit.com/'><img class='img-responsive' src='/img/tangerine.png' alt='Tangerine' width='100px'></a>Tangerine Theatre Company</h1>
+              <h2>The Collective Project with The Pensive Federation.</h2>
+            </div>
+            <div class='panel-body'>
+              <div class='introductiontext'>Press release from Hot Jilly Sauce ‘We are delighted to announce that our client, TV favorite Ms Holiday Snow will be on tour this year bringing her unique methods to help YOU access YOUR inner beauty! Forget Derek Acorah, Holiday and her mysterious goddess statue will channel your hidden feminine powers and help you become the woman you have always dreamed of being. Remember her from Antiques Roadshow? Who could forget! Bleeping out a valuation has never happened since… Come for your FREE preview of her interview by Young Journalist of the Year, Krishni Shah in glamorous Supplement Magazine which is promising going to spill all about the REAL Holiday Snow. We can’t wait!
+  <a href='https://www.brightonfringe.org/box-office/online'>Book your tickets</a> now as they will sell like hot saveloys! Brighton Fringe, The Theatre Box, The Warren Saturday 6th and  Sunday 7th May 12.45pm  and Thursday 18th May 6.45pm. <a href='http://53two.com/h-o-m-e/4554349210'>Manchester, Theatre 53TWO</a> May 30th- June 3rd 7.30pm -
+              </div>
+            </div>
           </div>
         </div>
+        <div class='col-md-3'></div>
       </div>
-        <div class='col-md-7' align='center'><div > <img class='image-responsive' width='100%' src='http://res.cloudinary.com/eatyourpeas/image/upload/v1441449454/serenahaywood/collective2015.jpg'></div></div>
+    </row>
+    <row class='row-odd col-md-12'>
+      <row>
+        <div class='col-md-3'></div>
+        <div class='col-md-6' align='center'>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h1><a href='http://pensivefederation.com/'><img class='img-responsive' src='/img/the_pensive_federation_cup.png' alt='PensiveFederation' width='100px'></a>The Pensive Federation</h1>
+              <h2>Significant Other with The Pensive Federation.</h2>
+            </div>
+            <div class='panel-body'>
+              <div class='introductiontext'><a href='https://pensivefederation.com/'>The Pensive Federation</a> present The Significant Other Festival
+   Significant Other: colloquially used as a gender-blind term for a person's partner in an intimate relationship without disclosing or presuming anything about marital status, relationship status, or sexual orientation.
+   Fringe Innovators The Pensive Federation are excited to bring their annual festival of new writing to <a href='http://www.thevaults.london/significant-other-festival'>The Vaults</a> this spring, join us as we challenge a new team of theatre makers to create a 10 minute masterpiece in just 10 days. All with the Pensive mantra of the ‘extraordinary in the everyday’ and the ‘magic in the mundane’.
+   10x10 minute plays, 10 writers, 10 directors and 30 actors - all in 10 days.
+   "The Pensive Federation have reaffirmed their position as one of the most exciting new writing companies." ★★★★★ View from the Gods
+   "I’m sure there was blood, sweat and tears putting this show together, but the team’s talent and hard work make it look easy." ★★★★★ Female Arts
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-3'></div>
+      </row>
+      <div class='row col-md-12'>
+        <div class='col-md-3'></div>
+        <div class='col-md-6' align='center'><div > <img class='image-responsive' width='100%' src='img/significant_other.png'></div></div>
+        <div class='col-md-3'></div>
+      </div>
     </row>
     <div class='filler'>hi</div>
   </container-fluid>
@@ -49,6 +85,10 @@
                 <input type='file' id='play_image_file' name='play_image_file'>
                 <p><img src={{ c.url play_image }} width = '150px' class="img-fileUpload-thumbnail img-thumbnail img-rounded"></p>
               <!--  <div class = 'centre' align='center'><img src = {{ c.url play_image }} class="img-fileUpload-thumbnail img-thumbnail img-rounded"></div> -->
+              </div>
+              <div class="form-group">
+                <label for="play_blurb">Details</label>
+                <input type="text" class="form-control" id="play_blurb" placeholder = "Macbeth wants to be King and so does his wife. What happens next?">
               </div>
               <div class="form-group">
                 <label for="title">Title</label>
@@ -104,11 +144,15 @@
           <h4 class="modal-title" id="addPlay">{{ title }} </h4>
         </div>
         <div class="modal-body">
-          <div class='form-group'>
-            <label for='play_image_file'>Play Image</label>
-            <input type='file' id='play_image_file' name='play_image_file'>
-            <p><img src={{ c.url play_image }} width = '150px' class="img-fileUpload-thumbnail img-thumbnail img-rounded"></p>
-          </div>
+              <div class='form-group'>
+                <label for='play_image_file'>Play Image</label>
+                <input type='file' id='play_image_file' name='play_image_file'>
+                <p><img src={{ c.url play_image }} width = '150px' class="img-fileUpload-thumbnail img-thumbnail img-rounded"></p>
+              </div>
+              <div class="form-group">
+                <label for="play_blurb">Details</label>
+                <input type="text" class="form-control" id="play_blurb" value = {{play_blurb}}>
+              </div>
               <div class="form-group">
                 <label for="theatre_company">Theatre Company</label>
                 <input type="text" class="form-control" id="theatre_company" value = {{theatre_company}}>
@@ -271,6 +315,7 @@
 <template name='paneldata'>
   <!--<div class="panel-body text-center"> -->
     <h1>{{ title }}</h1>
+    <h5>{{ play_blurb }}</h5>
     <h4><a href= {{ web_link }}>{{ theatre_company}}</a></h4>
     <h5>{{ festival_name}} <i>{{ date }}</i></h5>
     <h6><a href= {{ venue_web_link }}>{{ venue }}</a></h6>
@@ -419,7 +464,7 @@
 <template name='writers_groups'>
   <div class="col-md-6">
   <h1>The South London Womens (BAME) Writers' Group</h1>
-  <p>The South London Womens (BAME) Writers' Group is a free, supportive network of creatives including but not limited to writers, directors, producers, actors and artistic directors. We meet monthly on every second Wednesday 7pm at <a href='http://www.thehonoroak.co.uk/'>the Honor Oak</a> (1 St German Road, Forest Hill, SE23 1RH  ) to share new writing and give positive and constructive feedback. We particularly aim to support those writers and actors who identify as BAME but are open to all. Men are also welcome. However the emphasis is on supporting the voice of all women, reflect the diversity of London and help women's stories to be heard. Our experience is for words for the stage but we'd love to hear everything from first novel ideas to musicals! Please bring no more than 10 minutes for each piece and we will share as many as we can time allowing. We particularly would like to hear from women BAME actors for unrehearsed readings on the night and to share feedback with all.</p>
+  <p>The South London Womens (BAME) Writers' Group is a free, supportive network of creatives including but not limited to writers, directors, producers, actors and artistic directors. We meet bi-monthly at <a href='http://www.brockleyjack.co.uk/'>the Brockley Jack Theatre</a> 410 Brockley Rd, London SE4 2DH) to share new writing and give positive and constructive feedback. We particularly aim to support those writers and actors who identify as BAME but are open to all. Men are also welcome. However the emphasis is on supporting the voice of all women, reflect the diversity of London and help women's stories to be heard. Our experience is for words for the stage but we'd love to hear everything from first novel ideas to musicals! Please bring no more than 10 minutes for each piece and we will share as many as we can time allowing. We particularly would like to hear from women BAME actors for unrehearsed readings on the night and to share feedback with all.</p>
   <small><strong>Co-Founders and conveners</strong><br>
 Serena Haywood - writer and co-artistic director The Pensive Federation<br>
 Guleraana Mir - writer, co-founder The London Playwriting Lab</small>
@@ -443,7 +488,9 @@ Guleraana Mir - writer, co-founder The London Playwriting Lab</small>
     <div class="col-md-6 "><div class="lead row-odd" >Painful truths through comedy</div>
       <div class="row-odd">Serena is a critically acclaimed playwright whose careful and wry observations place a lens over the lives and loves of ordinary people.
       Her writing is often funny and always poignant. She always leaves her audience entertained and enriched.</div>
-      <p class='row-odd'>read an interview with Serena Haywood <a href="http://www.femalearts.com/node/1852">here</a></p>
+      <div class='row-odd'>Serena is currently studying for a masters in creative writing for stage and screen at City University (completion date summer 2018)
+Serena is also a Consultant Paediatrician, Honorary Senior Lecturer and Doctor Advisor with the BMA and writes a blog on resilience (<a id="about-link" href='http://recalibr8.tumblr.com/'>recalibr8</a>) to support junior doctors commissioned by St Georges University Hospitals NHS Foundation Trust. Dr S Haywood (GMC number 4022732)</div>
+      <p class='row-odd'>read an interview with Serena Haywood <a id='about-link' href="http://www.femalearts.com/node/1852">here</a></p>
     </div>
   </div>
 </template>
