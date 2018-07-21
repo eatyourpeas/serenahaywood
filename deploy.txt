@@ -1,0 +1,4 @@
+because you tend to update this infrequently you will probably forget how to deploy
+cd into the .deploy folder
+then 'mup deploy'
+that's it...
