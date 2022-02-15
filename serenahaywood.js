@@ -194,6 +194,10 @@ if (Meteor.isClient) {
     name:'writers_groups',
     template:'writers_groups'
   });
+  Router.route('literary_teams', {
+    name:'literary_teams',
+    template: 'literary_teams'
+  });
   Router.route('/', {
     name: 'home',
     template: 'home'
@@ -249,7 +253,9 @@ if (Meteor.isClient) {
   Template.writing.helpers({
 
       'Plays': function(){
-        return PlayList.find();
+        return PlayList.find({},{
+          sort: { date: -1 }
+      });
       },
       'Reviews': function(){
         return ReviewList.find({playId : this._id});

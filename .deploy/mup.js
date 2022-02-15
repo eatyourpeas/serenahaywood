@@ -1,9 +1,9 @@
 module.exports = {
   servers: {
     one: {
-      host: '188.166.169.226',
+      host: 'url here',
       username: 'root',
-      pem: '/Users/SimonChapman/.ssh/id_rsa'
+      // pem: ''
       // password:
       // or leave blank for authenticate from ssh-agent
     }
@@ -19,12 +19,11 @@ module.exports = {
       serverOnly: true,
     },
     env: {
-      ROOT_URL: 'http://serenahaywood.com'
-  //    MONGO_URL: 'mongodb://eatyourpeas:pushk1n@ds157298.mlab.com:57298/serena_haywood_db'
+      ROOT_URL: 'https://www.serenahaywood.com',
     },
 
     //dockerImage: 'kadirahq/meteord',
-    dockerImage: 'abernix/meteord:base',
+    dockerImage: 'abernix/meteord:node-8.11.2-base',
     deployCheckWaitTime: 60
   },
 
@@ -35,4 +34,15 @@ module.exports = {
       one: {},
     },
   },
+
+  proxy: {
+    domains: 'serenahaywood.com,www.serenahaywood.com',
+    ssl: {
+      // Enable let's encrypt to create free certificates.
+      // The email is used by Let's Encrypt to notify you when the
+      // certificates are close to expiring.
+      letsEncryptEmail: 'eatyourpeasapps@gmail.com',
+      forceSSL: true
+    }
+  }
 };
